@@ -1,0 +1,86 @@
+:host{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.filter-search{
+  display: flex;
+  flex-direction: column;
+}
+.app-filters{
+  display: flex;
+  flex-direction: column;
+  background-color: palegoldenrod;
+  padding: 5px 40px 15px 40px;
+
+}
+.filters{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+}
+.small-screen-filters{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+
+}
+
+.mat-select{
+  color: darkorange;
+}
+.mat-form-field{
+  width: 230px;
+}
+.mat-option{
+  color: darkorange;
+}
+
+.search{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+.mat-raised-button{
+  background-color: darkorange;
+  color: white;
+}
+.no-visible{
+  display: none;
+}
+.visible{
+  display: flex;
+}
+.resipes{
+  padding: 10px 40px 10px 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.recipe-align-center{
+  justify-content: center;
+}
+.recipe-align-between{
+  justify-content: space-between;
+}
+.add{
+  display: flex;
+  padding: 20px 40px;
+  justify-content: space-between;
+  align-items: center;
+}
+.more-recipes{
+  display: flex;
+  padding: 20px 0;
+  justify-content: center;
+}
+a{
+  color: white;
+  text-decoration: none;
+}

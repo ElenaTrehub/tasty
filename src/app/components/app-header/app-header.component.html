@@ -1,0 +1,71 @@
+<div *appLargeScreen class="title-bar">
+  <div class="logo">
+    <img src="assets/images/logo.png" alt="logo">
+  </div>
+  <form action="" method="post" class="search">
+    <input type="search" name="" placeholder="поиск" class="input" />
+    <input type="submit" name="" value="" class="submit" />
+  </form>
+  <div class="menu-area">
+    <div class="sign-area">
+      <span *ngIf="user">{{user.userName}}</span>
+      <button *ngIf="!user"mat-raised-button><a routerLink="/authorise">Sign in!</a></button>
+      <button *ngIf="user" mat-raised-button (click)="logout()">Sign out!</button>
+    </div>
+    <nav *ngIf="user">
+      <ul>
+        <li>Покупки</li>
+        <li>Продажи</li>
+        <li>Сообщения</li>
+        <li>Настройка профиля</li>
+      </ul>
+    </nav>
+  </div>
+</div>
+
+
+<div *appMiddleScreen class="title-bar">
+  <div class="logo">
+    <img src="assets/images/logo.png" alt="logo">
+  </div>
+  <div class="menu-area">
+    <div class="sign-area">
+      <span>User name</span>
+      <button mat-raised-button>Sign in!</button>
+      <button mat-raised-button>Sign out!</button>
+    </div>
+    <nav>
+      <ul>
+        <li>Покупки</li>
+        <li>Продажи</li>
+        <li>Сообщения</li>
+        <li>Настройка профиля</li>
+      </ul>
+    </nav>
+  </div>
+</div>
+
+<div *appSmallScreen class="title-bar">
+  <div class="logo">
+    <img src="assets/images/logo.png" alt="logo">
+  </div>
+  <div class="menu-area">
+    <div class="sign-area">
+      <span>User name</span>
+      <button mat-raised-button>Sign in!</button>
+      <button mat-raised-button>Sign out!</button>
+    </div>
+  </div>
+  <div class="small-icon-holder">
+    <a><img src="assets/images/menu.png" (click)="ShowSmallScreenMenu()"></a>
+    <nav *ngIf="isSmallScreen" class="popup-menu">
+      <ul>
+        <li>Покупки</li>
+        <li>Продажи</li>
+        <li>Сообщения</li>
+        <li>Настройка профиля</li>
+      </ul>
+    </nav>
+  </div>
+
+</div>

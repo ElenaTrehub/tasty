@@ -1,0 +1,94 @@
+<div class="add-recipe-form">
+  <span>Добавление рецепта</span>
+  <div class="content">
+    <div class="left-content">
+      <mat-form-field class="example-full-width col-12">
+        <input name="recipeTitle" matInput placeholder="Введите название блюда..." [(ngModel)]="recipe.recipeTitle" [formControl]="titleFormControl">
+        <mat-error *ngIf="titleFormControl.hasError('pattern') && !titleFormControl.hasError('required')">
+          Введите корректное название. Длина от 2 до 50 латинских символов
+        </mat-error>
+        <mat-error *ngIf="titleFormControl.hasError('required')">
+          Название <strong>обязательно</strong>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Выберите категорию</mat-label>
+        <mat-select [(ngModel)]="selectedCategory" [formControl]="categoryFormControl">
+          <mat-option *ngFor="let category of categories" [value]="category.categoryID" >
+            {{category.categoryTitle}}
+          </mat-option>
+          <mat-error *ngIf="categoryFormControl.hasError('required')">
+            Категория <strong>обязательно</strong>
+          </mat-error>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Введите описание</mat-label>
+        <textarea name="recipeDescription" matInput placeholder="Описание блюда" [(ngModel)]="recipe.recipeDescription" [formControl]="descriptionFormControl"></textarea>
+        <mat-error *ngIf="descriptionFormControl.hasError('pattern') && !descriptionFormControl.hasError('required')">
+          Введите корректное описание. Длина от 2 до 350 символов
+        </mat-error>
+        <mat-error *ngIf="descriptionFormControl.hasError('required')">
+          Описание <strong>обязательно</strong>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="example-full-width col-12">
+        <input name="calory" matInput placeholder="Введите колличество калорий..." [(ngModel)]="recipe.calory" [formControl]="caloryFormControl">
+        <mat-error *ngIf="caloryFormControl.hasError('pattern') && !caloryFormControl.hasError('required')">
+          Введите корректное значение.
+        </mat-error>
+        <mat-error *ngIf="caloryFormControl.hasError('required')">
+          Колличество калорий <strong>обязательно</strong>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="example-full-width col-12">
+        <input  matInput placeholder="Введите время приготовления в минутах..." [(ngModel)]="recipe.timePrepare" [formControl]="timeFormControl">
+        <mat-error *ngIf="timeFormControl.hasError('pattern') && !timeFormControl.hasError('required')">
+          Введите корректное значение.
+        </mat-error>
+
+      </mat-form-field>
+    </div>
+
+    <div class="right-content">
+      <div class="ingredients-form">
+        <mat-form-field class="example-full-width col-12">
+          <input name="recipeIngredient" matInput placeholder="Введите название ингридиента..." [(ngModel)]="currentIngredient.ingredientTitle" [formControl]="ingredientTitleFormControl">
+
+        </mat-form-field>
+        <mat-form-field class="example-full-width col-12">
+          <input name="countIngredient" matInput placeholder="Введите колличество ингридиента..." [(ngModel)]="currentIngredient.ingredientCount" [formControl]="ingredientCountFormControl">
+
+        </mat-form-field>
+        <mat-form-field class="example-full-width col-12">
+          <input name="units" matInput placeholder="Введите единицы измерений..." [(ngModel)]="currentIngredient.ingredientUnit" [formControl]="unitsFormControl">
+
+        </mat-form-field>
+
+        <button type="button" mat-button class="add-ingredient-button" (click)="addIngredient()">Добавить ингредиент</button>
+        <button mat-button class="remove-ingredient-button" (click)="DeleteIngredient(deleteIng.value)">Удалить ингредиент</button>
+        <mat-form-field class="ingredients">
+          <mat-label>Ваши ингредиенты</mat-label>
+          <mat-select #deleteIng>
+            <mat-option  *ngFor="let ing of ingredients" [value]="ing">
+              {{ing.ingredientTitle}} - {{ing.ingredientCount}} {{ing.ingredientUnit}}.
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <p>Для удаления ингридиента выбирите из списка необходимый ингридиент и нажмите кнопку "Удалить"</p>
+      </div>
+
+    </div>
+  </div>
+
+
+
+
+
+  <mat-form-field class="col-12">
+    <ngx-mat-file-input [formControl]="multiplefile" datatype="file" placeholder="Прикрепить фото" multiple></ngx-mat-file-input>
+    <mat-icon matSuffix>folder</mat-icon>
+  </mat-form-field>
+  <button mat-button class="add-button" (click)="AddRecipe()">Добавить рецепт</button>
+</div>
+

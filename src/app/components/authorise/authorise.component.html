@@ -1,0 +1,32 @@
+
+  <form class="authorise-form">
+    <span>Авторизация пользователя</span>
+    <mat-form-field class="example-full-width col-12">
+      <input name="userLogin" matInput placeholder="Логин" [(ngModel)]="user.userLogin" [formControl]="loginFormControl">
+      <mat-error *ngIf="loginFormControl.hasError('pattern') && !loginFormControl.hasError('required')">
+        Введите корректный логин. Длина от 4 до 20 латинских символов
+      </mat-error>
+      <mat-error *ngIf="loginFormControl.hasError('required')">
+        Логин <strong>обязателен</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width col-12">
+      <input name="userPassword" matInput type="password" [(ngModel)]="user.userPassword" placeholder="Пароль" [formControl]="passwordFormControl">
+      <mat-error *ngIf="passwordFormControl.hasError('required')">
+        Пароль <strong>обязателен</strong>
+      </mat-error>
+    </mat-form-field>
+    <div class="button-div">
+      <button mat-stroked-button class="authButton" (click)="authorize( $event )">Войти</button>
+      <a routerLink="/"><button mat-stroked-button class="canselButton">Отмена</button></a>
+    </div>
+
+    <div class="navigate">
+      <div><a routerLink="/register">Регистрация</a></div>
+      <div><a routerLink="/recovery">Восстановить пароль</a></div>
+    </div>
+  </form>
+
+
+

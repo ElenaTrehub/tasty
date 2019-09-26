@@ -1,0 +1,54 @@
+<div class="resipes-list">
+  <div class="app-filters">
+    <div [ngClass]="{'visible': screenService.isSmall(), 'no-visible': !screenService.isSmall()}">
+      <button mat-raised-button (click)="ShowFilters()">Применить фильтры</button>
+    </div>
+    <div class="filter-search">
+      <div [ngClass]="{'small-screen-filters': screenService.isSmall(), 'filters': !screenService.isSmall(), 'visible': isShowFilter, 'no-visible': !isShowFilter}" >
+        <mat-form-field>
+          <mat-label>Выберите категорию</mat-label>
+          <mat-select>
+            <mat-option *ngFor="let category of categories" [value]="category.categoryTitle">
+              {{category.categoryTitle}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Поиск по ингридиенту" value="Sushi">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Сортировка</mat-label>
+          <mat-select>
+            <mat-option *ngFor="let sortItem of sortArray" [value]="sortItem">
+              {{sortItem}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+
+      </div>
+      <div class="search" [ngClass]="{'no-visible': screenService.isSmall(), 'visible': !screenService.isSmall(),'visible': isShowFilter, 'no-visible': !isShowFilter}">
+        <div>
+          <button mat-raised-button>Найти рецепты</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="add">
+    <div>
+      <span>Всего найдено:{{countRecipe}}</span>
+    </div>
+    <div>
+      <button mat-raised-button><a routerLink="/addRecipe">Добавить новый рецепт</a></button>
+    </div>
+  </div>
+  <div class="resipes" [ngClass]="{'recipe-align-center': screenService.isSmall(), 'recipe-align-between': !screenService.isSmall()}">
+    <app-recipe-card [recipe]='recipe' *ngFor="let recipe of recipes"></app-recipe-card>
+  </div>
+  <div class="more-recipes">
+    <button mat-raised-button *ngIf="!maxRecipes" (click)="AddLots()">Еще</button>
+  </div>
+</div>

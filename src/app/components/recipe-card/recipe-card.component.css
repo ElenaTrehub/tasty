@@ -1,0 +1,22 @@
+.example-card {
+  max-width: 250px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  margin-bottom: 40px;
+  padding-bottom: 30px;
+  margin-left: 40px;
+}
+.mat-card-title{
+  font-weight: bold;
+  color: darkorange;
+}
+.example-header-image {
+  background-size: cover;
+}
+.mat-button{
+  background-color: darkorange;
+  color: white;
+}
+.mat-card-actions{
+  display: flex;
+  justify-content: center;
+}

@@ -1,0 +1,66 @@
+:host{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+.add-recipe-form{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  width: 80%;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+span{
+  font-size: large;
+  font-weight: bold;
+  color: darkorange;
+  margin-bottom: 10px;
+}
+.content{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.left-content{
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+.right-content{
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+mat-form-field{
+  width: 80%;
+  font-size: 14px;
+}
+.add-button{
+  background-color: darkorange;
+  margin-right: 40px;
+  color: white;
+}
+.add-ingredient-button{
+  background-color: darkorange;
+  margin-right: 40px;
+  color: white;
+}
+.remove-ingredient-button{
+  background-color: brown;
+  margin-right: 40px;
+  color: white;
+}
+p{
+  font-size: 12px;
+  color: chocolate;
+}
+

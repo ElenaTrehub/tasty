@@ -1,0 +1,50 @@
+<form class="registration-form">
+  <span>Регистрация пользователя</span>
+  <mat-form-field class="example-full-width col-12">
+    <input name="userName" matInput placeholder="Введите имя..." [(ngModel)]="user.userName" [formControl]="nameFormControl">
+    <mat-error *ngIf="nameFormControl.hasError('pattern') && !nameFormControl.hasError('required')">
+      Введите корректное имя. Длина от 2 до 20 латинских символов
+    </mat-error>
+    <mat-error *ngIf="nameFormControl.hasError('required')">
+      Имя <strong>обязательно</strong>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="example-full-width col-12">
+    <input name="userLogin" matInput placeholder="Введите логин..." [(ngModel)]="user.userLogin" [formControl]="loginFormControl">
+    <mat-error *ngIf="loginFormControl.hasError('pattern') && !loginFormControl.hasError('required')">
+      Введите корректный логин. Длина от 4 до 20 латинских символов
+    </mat-error>
+    <mat-error *ngIf="loginFormControl.hasError('required')">
+      Логин <strong>обязателен</strong>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="example-full-width col-12">
+    <input name="userEmail" matInput placeholder="Введите email..." [(ngModel)]="user.userEmail" [formControl]="emailFormControl">
+    <mat-error *ngIf="emailFormControl.hasError('pattern') && !emailFormControl.hasError('required')">
+      Введите корректный email. название@наименованиен.домен
+    </mat-error>
+    <mat-error *ngIf="emailFormControl.hasError('required')">
+      Email <strong>обязателен</strong>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="example-full-width col-12">
+    <input name="userPassword" matInput type="password" [(ngModel)]="user.userPassword" placeholder="Пароль" [formControl]="passwordFormControl">
+    <mat-error *ngIf="passwordFormControl.hasError('required')">
+      Пароль <strong>обязателен</strong>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="example-full-width col-12">
+    <input name="userConfirmPassword" matInput type="password" placeholder="Подтвердите пароль" [(ngModel)]="user.userConfirmPassword" [formControl]="passwordConfirmFormControl">
+    <mat-error *ngIf="passwordConfirmFormControl.hasError('required')">
+      Пароль <strong>обязателен</strong>
+    </mat-error>
+    <mat-error *ngIf="passwordConfirmFormControl.errors">
+      <strong>Пароли не совпадают</strong>
+    </mat-error>
+  </mat-form-field>
+  <div class="button-div">
+    <button mat-stroked-button class="registry-button" (click)="register()">Регистрация</button>
+    <a routerLink="/authorise" ><button mat-stroked-button class="auth-button">Авторизация</button></a>
+  </div>
+
+</form>
